@@ -1,17 +1,35 @@
-import { runCode } from "./exercise";
+import { trialDivision } from "./exercise";
 
-describe("tests", () => {
-  it("should return [1,2,3,4]", () => {
-    const arrayA = [1, 2];
-    const arrayB = [3, 4];
-    const rta = runCode(arrayA, arrayB);
-    expect(rta).toEqual([1, 2, 3, 4]);
-  });
+describe('trialDivision', () => {
+  it('should detect prime numbers', () => {
+    expect(trialDivision(1)).toBe(false);
+    expect(trialDivision(2)).toBe(true);
+    expect(trialDivision(3)).toBe(true);
+    expect(trialDivision(5)).toBe(true);
+    expect(trialDivision(11)).toBe(true);
+    expect(trialDivision(191)).toBe(true);
+    expect(trialDivision(191)).toBe(true);
+    expect(trialDivision(199)).toBe(true);
 
-  it("should return [1,2,3,4,5]", () => {
-    const arrayA = [1, 2];
-    const arrayB = [3, 4, 5];
-    const rta = runCode(arrayA, arrayB);
-    expect(rta).toEqual([1, 2, 3, 4, 5]);
+    expect(trialDivision(-1)).toBe(false);
+    expect(trialDivision(-11)).toBe(false);
+    expect(trialDivision(-6)).toBe(false);
+    expect(trialDivision(0)).toBe(false);
+    expect(trialDivision(4)).toBe(false);
+    expect(trialDivision(6)).toBe(false);
+    expect(trialDivision(12)).toBe(false);
+    expect(trialDivision(14)).toBe(false);
+    expect(trialDivision(25)).toBe(false);
+    expect(trialDivision(192)).toBe(false);
+    expect(trialDivision(200)).toBe(false);
+    expect(trialDivision(400)).toBe(false);
+
+    // It should also deal with floats.
+    expect(trialDivision(0.5)).toBe(false);
+    expect(trialDivision(1.3)).toBe(false);
+    expect(trialDivision(10.5)).toBe(false);
+    expect(trialDivision(2.4)).toBe(false);
+    expect(trialDivision(2.7)).toBe(false);
+    expect(trialDivision(11.5)).toBe(false);
   });
 });
